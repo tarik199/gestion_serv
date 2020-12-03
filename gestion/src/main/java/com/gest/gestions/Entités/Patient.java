@@ -10,6 +10,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -33,7 +35,10 @@ public class Patient extends auditingclasse<String> implements Serializable {
     @ManyToOne(optional = true)
 
     private Hopital hopital;
-
+    @OneToMany(mappedBy = "patient")
+    private Set<Data_pre> data_pres=new HashSet<Data_pre>(0);
+    @OneToMany(mappedBy = "patient")
+    private Set<Data_personnelle> data_personelles=new HashSet<Data_personnelle>(0);
 
 
 
