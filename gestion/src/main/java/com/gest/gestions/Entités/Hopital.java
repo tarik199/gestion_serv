@@ -1,6 +1,7 @@
 package com.gest.gestions.Entités;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gest.gestions.jpaauditing.auditingclasse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,6 +30,7 @@ public class Hopital extends auditingclasse<String> implements Serializable {
     private String adresse;
     @Column
     private String info_supplementaire;
+    @JsonIgnore
     @OneToMany(mappedBy = "hopital")
     private Set<Patient> patients=new HashSet<Patient>(0);
 

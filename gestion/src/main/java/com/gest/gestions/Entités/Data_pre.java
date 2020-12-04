@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -51,5 +52,10 @@ public class Data_pre  extends auditingclasse<String> implements Serializable {
     @JsonIgnore
     @ManyToOne(optional = true)
     private Patient patient;
+    @JsonIgnore
+    @OneToOne
+    private Cholesterol cholesterol;
 
+    @Column
+    private Date datevisite= new Date();
 }

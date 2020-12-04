@@ -35,10 +35,16 @@ public class Patient extends auditingclasse<String> implements Serializable {
     @ManyToOne(optional = true)
 
     private Hopital hopital;
+    @JsonIgnore
     @OneToMany(mappedBy = "patient")
     private Set<Data_pre> data_pres=new HashSet<Data_pre>(0);
+    @JsonIgnore
     @OneToMany(mappedBy = "patient")
     private Set<Data_personnelle> data_personelles=new HashSet<Data_personnelle>(0);
+    @JsonIgnore
+    @OneToMany(mappedBy = "patient")
+    private Set<Cholesterol> cholesterols=new HashSet<Cholesterol>(0);
+
 
 
 
